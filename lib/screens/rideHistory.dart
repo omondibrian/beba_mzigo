@@ -25,15 +25,13 @@ class RideHistory extends StatelessWidget {
             )
           ],
           automaticallyImplyLeading: true,
-          leading: IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.menu),
-          ),
+      
         ),
         body: SafeArea(
             child: Container(
                 padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                 child: Column(
+                  crossAxisAlignment:CrossAxisAlignment.start,
                   children: [
                     Text(
                       'Showing Recent Rides',

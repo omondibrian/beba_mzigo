@@ -4,6 +4,7 @@ import './screens/rating.dart';
 import './screens/rideHistory.dart';
 import './screens/signin.dart';
 import './screens/Signup.dart';
+import './screens/home.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'BebaMzigo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
           appBarTheme: AppBarTheme(
@@ -39,7 +40,7 @@ class MyApp extends StatelessWidget {
         '/history': (_) => RideHistory(),
         '/signin': (_) => SignIn(),
         '/signup': (_) => SignUp(),
-        '/': (_) => SignUp(),
+        '/': (_) => Home(),
       },
     );
   }

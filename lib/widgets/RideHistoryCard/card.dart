@@ -11,46 +11,78 @@ class HistoryCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-        elevation: 5,
-        child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
+        margin: EdgeInsets.symmetric(vertical: 10),
+        elevation:5,shadowColor:Colors.grey.shade300,
+        child: Container(
+          padding: EdgeInsets.symmetric(horizontal: 10),
+          width: MediaQuery.of(context).size.width,
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
-                child: Row(
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Icon(Icons.location_on),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(this.ride.from),
+                    Row(
+                      children: [
+                        Icon(Icons.location_on),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(this.ride.from),
+                        ),
+                      ],
                     ),
-                    SizedBox(width: MediaQuery.of(context).size.width * 0.55),
-                    Text(this.ride.date)
+                    Container(
+                      height: 30,
+                      margin: EdgeInsets.only(
+                          left: 10, top: 0, right: 0, bottom: 0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: List.generate(
+                            11,
+                            (index) => Expanded(
+                                  child: Container(
+                                    color: index % 2 == 0
+                                        ? Colors.transparent
+                                        : Colors.grey.shade300,
+                                    height: 1,
+                                    width: 2,
+                                  ),
+                                )),
+                      ),
+                    ),
+                    Row(
+                      children: [
+                        Transform.rotate(
+                          angle: -45,
+                          child: Icon(Icons.send_outlined,
+                              color: ThemeColors.primaryColor),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(this.ride.to),
+                        ),
+                      ],
+                    )
                   ],
                 ),
               ),
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 8.0, horizontal: 10),
-                child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [ratingBar(rating: this.ride.rating, size: 15)]),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
-                child: Row(
-                  children: [
-                    Icon(Icons.send_outlined, color: ThemeColors.primaryColor),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(this.ride.to),
-                    ),
-                    SizedBox(width: MediaQuery.of(context).size.width * 0.5),
-                    Text(this.ride.price)
-                  ],
-                ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Text(this.ride.date),
+                  SizedBox(
+                    height: 12,
+                  ),
+                  ratingBar(rating: this.ride.rating, size: 15),
+                  SizedBox(
+                    height: 12,
+                  ),
+                  Text(this.ride.price)
+                ],
               )
-            ]));
+            ],
+          ),
+        ));
   }
 }

@@ -84,7 +84,7 @@ class SignIn extends StatelessWidget {
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.8,
                     child: DefaultButton( 
-                      handlePress: () {Navigator.pushNamed(context, '/rating');},
+                      handlePress: () {Navigator.pushNamed(context, '/');},
                       text: 'Log in',
                     ),
                   ),
